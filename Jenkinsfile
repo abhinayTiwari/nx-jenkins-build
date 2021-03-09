@@ -1,7 +1,10 @@
 node {
   withEnv(["HOME=${workspace}"]) {
-    docker.image('node:latest').inside('--tmpfs /.config') {
-      stage("Prepare") {
+     stage('Initialize'){
+        def dockerHome = tool 'node'
+        env.PATH = "${dockerHome}/bin:${env.PATH}"
+    }
+    stage("Prepare") {
         checkout scm
         sh 'yarn install'
       }
