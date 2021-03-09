@@ -15,19 +15,26 @@ node {
           checkout scm
           sh 'yarn install'
         }
-        
       }
 
       stage("Test") {
-        sh 'yarn nx run-many --target=test --all'
+         nodejs('node'){
+           sh 'yarn nx run-many --target=test --all'
+        } 
       }
 
       stage("Lint") {
-        sh 'yarn nx run-many --target=lint --all'
+         nodejs('node'){
+           sh 'yarn nx run-many --target=lint --all'
+         }
+        
       }
 
       stage("Build") {
-        sh 'yarn nx run-many --target=build --all --prod'
+         nodejs('node'){
+            sh 'yarn nx run-many --target=build --all --prod'
+         }
+       
       }
   }
 }
