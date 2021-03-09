@@ -1,10 +1,11 @@
 node {
   withEnv(["HOME=${workspace}"]) {
-     stage('Initialize'){
+    
+      stage('Initialize'){
         def dockerHome = tool 'node'
         env.PATH = "${dockerHome}/bin:${env.PATH}"
-    }
-    stage("Prepare") {
+      }
+      stage("Prepare") {
         checkout scm
         sh 'yarn install'
       }
@@ -20,6 +21,5 @@ node {
       stage("Build") {
         sh 'yarn nx run-many --target=build --all --prod'
       }
-    }
   }
 }
