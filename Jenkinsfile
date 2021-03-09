@@ -4,7 +4,7 @@ node {
         def dockerHome = tool 'node'
         env.PATH = "${dockerHome}/bin:${env.PATH}"
       }
-      withEnv(['PATH+NODE=C:\Program Files\nodejs\node_modules\npm\bin']) {
+      withEnv(['PATH+NODE=C:/Program Files/nodejs/node_modules/npm/bin']) {
               stage('Prepare') {
               sh "npm install -g yarn"
               sh "yarn install"
