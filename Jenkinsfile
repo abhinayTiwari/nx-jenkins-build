@@ -11,8 +11,11 @@ node {
       //     }
       // } 
       stage("Prepare") {
-        checkout scm
-        sh 'yarn install'
+        nodejs('node'){
+          checkout scm
+          sh 'yarn install'
+        }
+        
       }
 
       stage("Test") {
