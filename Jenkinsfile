@@ -9,7 +9,7 @@ node {
               sh "npm install -g yarn"
               sh "yarn install"
           }
-      // } 
+      } 
       // stage("Prepare") {
       //   checkout scm
       //   sh 'yarn install'
