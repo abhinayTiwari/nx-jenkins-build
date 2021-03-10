@@ -11,6 +11,12 @@
     "react-app": {
       "tags": []
     },
+    "react-app-e2e": {
+      "tags": []
+    },
+    "ng-app-e2e": {
+      "tags": []
+    },
     "ng-app": {
       "tags": []
     },
