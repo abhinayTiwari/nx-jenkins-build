@@ -4,12 +4,6 @@ node {
         def dockerHome = tool 'node'
         env.PATH = "${dockerHome}/bin:${env.PATH}"
       }
-      // withEnv(['PATH+NODE=C:/Program Files/nodejs/node_modules/npm/bin']) {
-      //         stage('Prepare') {
-      //         sh "npm install -g yarn"
-      //         sh "yarn install"
-      //     }
-      // } 
       stage("Prepare") {
         nodejs('node'){
           checkout scm
@@ -19,7 +13,7 @@ node {
 
       stage("Test") {
          nodejs('node'){
-           sh 'yarn nx run-many --target=test --all --passWithNoTests'
+           sh 'yarn nx run-many --target=test --all'
         } 
       }
 
