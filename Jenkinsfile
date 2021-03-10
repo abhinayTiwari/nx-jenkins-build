@@ -19,7 +19,7 @@ node {
 
       stage("Test") {
          nodejs('node'){
-           sh 'yarn nx affected --target=test --base=origin/master --passWithNoTests'
+           sh 'yarn nx run-many --target=test --all --passWithNoTests'
         } 
       }
 
