@@ -11,9 +11,10 @@ node {
         }
       }
 
-       stage("Lint") {
+       stage("Lint NG App") {
          nodejs('node'){
-           sh 'yarn nx run-many --target=lint --all'
+          //  sh 'yarn nx run-many --target=lint --all'
+           sh 'yarn nx run-many --target=lint --projects=ng-app'
          }
         
       }
